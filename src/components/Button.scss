@@ -1,0 +1,77 @@
+.button {
+  align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 170px;
+  transform-style: preserve-3d;
+
+  &:after {
+    content: "";
+    background-color: #111;
+    border-radius: 8px;
+    display: block;
+    height: 48px;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -2px;
+    transform: translate(8px, 8px) translateZ(-1px);
+    transition: transform .2s ease-out;
+  }
+
+  &:hover {
+    outline: 0;
+    color: inherit;
+    
+    &:after {
+      transform: translate(0, 0) translateZ(-1px);
+    }
+  }
+
+  &:active {
+    background-color: #ffdeda;
+    outline: 0;
+  }
+
+  img {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    position: relative;
+    top: -1px;
+  }
+
+  .wordle-icon {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    background-color: #111;
+    color: #ffdeda;
+    font-weight: bold;
+    line-height: 1;
+    padding-top: 2px;
+    border-radius: 3px;
+    transform: rotate(-5deg);
+  }
+}

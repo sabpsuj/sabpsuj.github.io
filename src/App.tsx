@@ -3,9 +3,43 @@ import LinkedInIcon from './assets/icons/linkedin.svg';
 import GitHubIcon from './assets/icons/github.svg';
 import MediumIcon from './assets/icons/medium.svg';
 import MyAvatar from './assets/images/sabina_frog.jpeg';
+import { Button } from './components/Button';
+
+const buttons = [
+  {
+    link: "https://www.linkedin.com/in/psujsabina/",
+    label: "LinkedIn",
+    icon: {
+      src: LinkedInIcon,
+      altText: "LinkedIn"
+    }
+  },
+  {
+    link: "https://github.com/sabpsuj",
+    label: "Github",
+    icon: {
+      src: GitHubIcon,
+      altText: "Github"
+    }
+  },
+  {
+    link: "https://wordle.sabinapsuj.dev/",
+    label: "My Wordle",
+    icon: null,
+    iconClass: "wordle-icon",
+    iconLetter: "w"
+  },
+  {
+    link: "https://medium.com/@sabinapsuj",
+    label: "Medium",
+    icon: {
+      src: MediumIcon,
+      altText: "Medium"
+    }
+  }
+]
 
 function App() {
-
   return (
     <>
       <div className="container">
@@ -15,22 +49,17 @@ function App() {
           <p>I like to <span className="tooltip" onClick={()=>{}}>KISS<span className="tooltiptext">stands for <b>K</b>eep <b>I</b>t <b>S</b>imple <b>S</b>tupid</span></span> so I made this personal site <span className="tooltip" onClick={()=>{}}>ASAP<span className="tooltiptext">stands for <b>A</b>s<b> S</b>oon <b>A</b>s <b>P</b>ossible or/and for me <b>A</b>s <b>S</b>imple <b>A</b>s <b>P</b>ossible </span></span> to give you a chance to contact me.</p>   
         </div>
         <div className="buttons">
-          <a className="button" href="https://www.linkedin.com/in/psujsabina/" target="_blank">
-            <img src={LinkedInIcon} alt="LinkedIn" />
-            LinkedIn
-          </a>
-          <a className="button" href="https://github.com/sabpsuj" target="_blank">
-            <img src={GitHubIcon} alt="Github" />
-            Github
-          </a>
-          <a className="button" href="https://wordle.sabinapsuj.dev/" target="_blank">
-            <span className="wordle-icon">w</span>
-            My Wordle
-          </a>
-          <a className="button" href="https://medium.com/@sabinapsuj" target="_blank">
-            <img src={MediumIcon} alt="Medium" />
-            Medium
-          </a>
+          {buttons.map(({link, label, icon, iconClass, iconLetter}) => (
+              <Button
+                key={label}
+                link={link}
+                label={label}
+                icon={icon}
+                iconClass={iconClass}
+                iconLetter={iconLetter}
+              />
+            )
+          )}
         </div>
       </div>
       <footer>Made with 🐸 by Sabina Psuj</footer>
