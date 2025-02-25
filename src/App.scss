@@ -9,6 +9,16 @@ footer {
   justify-content: center;
   align-items: center;
   color:  #7e7e7e;
+  display: flex;
+  justify-content: space-around;
+
+  button {
+    font-size: 11px;
+    background: transparent;
+    color:  #7e7e7e;
+    border: none;
+    cursor: pointer;
+  }
 }
 
 .container {

@@ -4,6 +4,8 @@ import GitHubIcon from './assets/icons/github.svg';
 import MediumIcon from './assets/icons/medium.svg';
 import MyAvatar from './assets/images/sabina_frog.jpeg';
 import { Button } from './components/Button';
+import { PrivacyModal } from './components/PrivacyModal';
+import { useEffect, useState } from 'react';
 
 const buttons = [
   {
@@ -39,7 +41,21 @@ const buttons = [
   }
 ]
 
+const privacyAccepted = localStorage.getItem("privacyAccepted")
+
+
 function App() {
+  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(!privacyAccepted)
+
+  const handleClosePrivacyModal = () => {
+    setIsPrivacyModalOpen(false)
+    localStorage.setItem("privacyAccepted", "true")
+  }
+
+  const handleOpenPrivacyModal = () => {
+    setIsPrivacyModalOpen(true)
+  }
+
   return (
     <>
       <div className="container">
@@ -62,7 +78,8 @@ function App() {
           )}
         </div>
       </div>
-      <footer>Made with 🐸 by Sabina Psuj</footer>
+      <footer><div>Made with 🐸 by Sabina Psuj</div><button onClick={handleOpenPrivacyModal}>Privacy Info</button></footer>
+      <PrivacyModal isOpen={isPrivacyModalOpen} onClose={handleClosePrivacyModal} />
     </>
   )
 }
