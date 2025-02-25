@@ -5,7 +5,7 @@ import MediumIcon from './assets/icons/medium.svg';
 import MyAvatar from './assets/images/sabina_frog.jpeg';
 import { Button } from './components/Button';
 import { PrivacyModal } from './components/PrivacyModal';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const buttons = [
   {
